@@ -14,4 +14,11 @@ service / on new http:Listener(9090) {
         }
         return "Hello, " + name;
     }
+     resource function get status(string id) returns string|error {
+        // Send a response back to the caller.
+        if id is "" {
+            return error("id should not be empty!");
+        }
+        return "Status is:: PASSED";
+    }
 }
